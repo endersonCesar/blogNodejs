@@ -3,8 +3,8 @@ const res = require('express/lib/response');
 const app = express()
 const bodyParser= require('body-parser')
 const connection = require('./database/database')
-
-
+const Articles = require('./articles/Article')
+const Categories = require('./categories/Categories')
 app.set("view engine",'ejs')
 
 
@@ -13,6 +13,8 @@ app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
 const categoriesController  = require('./categories/CategoriesController')
 const articlesController  = require('./articles/ArticlesController')
+
+
 connection.authenticate().then(()=>{
     console.log('Conexão feita com sucesso')
 }).catch((error)=>{
