@@ -1,0 +1,38 @@
+
+
+<%-include("../../partials/header.ejs");%>
+<%-include("../../partials/navbar.ejs");%>
+<div class="container">
+    <hr>
+    <h2> Categorias</h2>
+    <hr>
+    <a class="btn btn-success" href="admin/categories/new">Criar nova categorie</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Slug</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+            <% categories.forEach(categoriy =>{%>
+
+                <tr>
+                    <th><%=categoriy.id%></th>
+                    <th><%=categoriy.title%></th>
+                    <th><%=categoriy.slug%></th>
+                    <th>
+                            <button class="btn btn-warning">Editar</button>
+                            <button class="btn btn-danger">Deletar</button>
+                    </th>
+                </tr>
+
+            <%})%>
+        </tbody>
+    </table>
+</div>
+
+<%-include("../../partials/footer.ejs");%>
